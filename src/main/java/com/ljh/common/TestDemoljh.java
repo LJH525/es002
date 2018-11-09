@@ -16,20 +16,20 @@ public class TestDemoljh {
 	public static void main(String[] args) {
 		
 		try {
-		//ÉèÖÃ¼¯ÈºµÄÃû×Ö
+		//è®¾ç½®é›†ç¾¤çš„åå­—
 		Settings settings = Settings.builder()
 				.put("cluster.name","my-application").build();
-		//´´½¨client
+		//åˆ›å»ºclientå¯¹è±¡
 		TransportClient client =new PreBuiltTransportClient(settings)
 					.addTransportAddress(new TransportAddress(InetAddress.getByName("node-1"),9300));
 		
-		//»ñÈ¡IndicesExistAdminClient
+		//è·å–IndicesExistAdminClient
 		IndicesAdminClient indicesadminclient = client.admin().indices();
-		//ÅĞ¶ÏË÷ÒıÊÇ·ñ´æÔÚ
+		//åˆ¤åˆ¤ç´¢å¼•æ˜¯å¦å­˜åœ¨
 		IndicesExistsResponse rs =indicesadminclient.prepareExists("index1").get();
 			 System.out.println(rs.isExists());
 			 
-			 //4.´´½¨Ë÷Òı
+			 //4. åˆ›å»ºç´¢å¼•
 		 CreateIndexResponse ciReponse=indicesadminclient.prepareCreate("index1").get();
 		        System.out.println(ciReponse.isAcknowledged());
 		

@@ -10,21 +10,21 @@ import org.elasticsearch.common.transport.TransportAddress;
 import org.elasticsearch.transport.client.PreBuiltTransportClient;
 
 /**
- * ¹Ù·½²Î¿¼ÎÄµµ
+ *å®˜æ–¹å‚è€ƒæ–‡æ¡£
  * https://www.elastic.co/guide/en/elasticsearch/client/java-api/current/transport-client.html
  */
 public class Test {
     public static void main(String[] args) throws UnknownHostException {
-        // ÉèÖÃ¼¯ÈºÃû³Æ
+        // è®¾ç½®é›†ç¾¤çš„åå­—
         Settings settings = Settings.builder().put("cluster.name", "esljh").build();
-        // ´´½¨client
+        // åˆ›å»ºclient
         TransportClient client = new PreBuiltTransportClient(settings)
                     .addTransportAddress(new TransportAddress(InetAddress.getByName("127.0.0.1"), 9300));
-        // ËÑË÷Êı¾İ
+        // æœç´¢æ•°æ®
         GetResponse response = client.prepareGet("website", "blog", "1").execute().actionGet();
-        // Êä³ö½á¹û
+        // è¾“å‡ºç»“æœ
         System.out.println(response.getSourceAsString());
-        // ¹Ø±Õclient
+        // å…³é—­client
         client.close();
         
     }

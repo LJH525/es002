@@ -5,15 +5,15 @@ import org.elasticsearch.common.settings.Settings;
 
 public class EsTools {
 	
-	//设置集群的名字
+	//璁剧疆闆嗙兢鍚嶅瓧
 	private static final String Cluster_Name = "esljh";
-	//节点的名字
+	//鑺傜偣鐨処p
 	private static final String Host = "127.0.0.1";
-	//链接的端口号
+	//閾炬帴鐨勭鍙ｅ彿
 	private static final int Tcp_Port =9300;
-	//设置Settings对象
+	//璁剧疆Settings瀵硅薄
 	private static Settings setting = Settings.builder().put("cluster_name",Cluster_Name).build();
-	//TransportClient 对象，用于连接ES集群
+	//TransportClient 瀵硅薄锛岀敤浜庨摼鎺s闆嗙兢
 	private static volatile TransportClient client;
 	
 	
